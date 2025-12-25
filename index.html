@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>وزارة العمل - نظام المخالصات</title>
+  
+  <!-- ربط ملف CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- ربط خطوط جوجل -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap"
+    rel="stylesheet"
+  />
+  
+  <style>
+    body {
+      font-family: 'Readex Pro', sans-serif;
+      direction: rtl;
+      background: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .main-container {
+      width: 100%;
+      max-width: 800px;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 30px;
+    }
+    
+    .title {
+      color: #0b5ed7;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    
+    .search-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    
+    .input-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      text-align: right;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Readex Pro', sans-serif;
+      transition: border 0.3s;
+      box-sizing: border-box;
+    }
+    
+    input:focus {
+      border-color: #0b5ed7;
+      outline: none;
+    }
+    
+    .button {
+      background: #0b5ed7;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Readex Pro', sans-serif;
+      font-weight: 600;
+      transition: background 0.3s;
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    .button:hover {
+      background: #084298;
+    }
+    
+    .direct-links {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .links-title {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .doc-link {
+      background: #e7f3ff;
+      color: #0b5ed7;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    
+    .doc-link:hover {
+      background: #0b5ed7;
+      color: white;
+      border-color: #084298;
+    }
+    
+    .footer {
+      margin-top: 40px;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 20px;
+      }
+      
+      .title {
+        font-size: 24px;
+      }
+      
+      .search-box,
+      .direct-links {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <!-- الشعار -->
+  <img src="images/وزارة_العمل.png" alt="شعار وزارة العمل" class="logo" />
+  
+  <!-- العنوان الرئيسي -->
+  <h1 class="title">نظام المخالصات الإلكترونية</h1>
+  <p class="subtitle">وزارة العمل - جمهورية مصر العربية</p>
+  
+  <!-- صندوق البحث -->
+  <div class="search-box">
+    <h2 style="color: #0b5ed7; margin-bottom: 25px;">البحث عن مستند</h2>
+    
+    <div class="input-group">
+      <label for="docId">أدخل رقم المستند (ID):</label>
+      <input 
+        type="text" 
+        id="docId" 
+        placeholder="مثال: abc123xyz" 
+        autocomplete="off"
+      />
+    </div>
+    
+    <button class="button" onclick="openDocument()">
+      فتح المستند
+    </button>
+    
+    <div id="errorMessage" style="color: #d9534f; margin-top: 15px; display: none;">
+      ⚠️ الرجاء إدخال رقم مستند صحيح
+    </div>
+  </div>
+  
+  <!-- روابط مباشرة للمستندات -->
+  <div class="direct-links">
+    <h3 class="links-title">روابط مباشرة للمستندات:</h3>
+    
+    <div class="link-list">
+      <a href="documents/fayza_mamon_awad.html" class="doc-link">المستند 1 (fayza_mamon_awad)</a>
+      <a href="documents/khaled_ahmed_nassar.html" class="doc-link">المستند 2 (khaled_ahmed_nassar)</a>
+      <a href="documents/ashraf_ayman_aysar.html" class="doc-link">المستند 3 (ashraf_ayman_aysar)</a>
+    </div>
+    
+    <p style="margin-top: 20px; color: #666; font-size: 14px;">
+      اختر أحد المستندات أعلاه أو اكتب الرمز في مربع البحث
+    </p>
+  </div>
+  
+  <!-- تذييل الصفحة -->
+  <div class="footer">
+    <p>جميع الحقوق محفوظة © وزارة العمل 2025</p>
+    <p>للدعم الفني: <a href="mailto:support@labor.gov.eg">support@labor.gov.eg</a></p>
+  </div>
+</div>
+
+<script>
+// قائمة المستندات المتاحة
+const availableDocuments = [
+  'fayza_mamon_awad',
+  'khaled_ahmed_nassar', 
+  'ashraf_ayman_aysar'
+];
+
+// دالة فتح المستند
+function openDocument() {
+  const docId = document.getElementById('docId').value.trim();
+  const errorMessage = document.getElementById('errorMessage');
+  
+  // التحقق من وجود ID
+  if (!docId) {
+    errorMessage.textContent = '⚠️ الرجاء إدخال رقم مستند';
+    errorMessage.style.display = 'block';
+    return;
+  }
+  
+  // التحقق من صحة ID
+  if (availableDocuments.includes(docId)) {
+    // توجيه إلى صفحة المستند
+    window.location.href = `documents/${docId}.html`;
+  } else {
+    errorMessage.textContent = '⚠️ رقم المستند غير موجود في النظام';
+    errorMessage.style.display = 'block';
+  }
+}
+
+// السماح بالضغط على Enter في حقل الإدخال
+document.getElementById('docId').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    openDocument();
+  }
+});
+
+// عرض روابط المستندات المتاحة
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('المستندات المتاحة:', availableDocuments);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+body {
+  font-family: "Readex Pro", sans-serif;
+  direction: rtl;
+  background: #fff;
+  color: #000;
+  padding: 0;
+  margin: 0;
+}
+
+.report-container {
+  width: 100%;
+  margin: auto;
+}
+
+.container, .container-fluid {
+  width: 95%;
+  margin: auto;
+}
+
+.head {
+  padding: 20px 0;
+}
+
+.head img {
+  width: 70px;
+  float: right;
+}
+
+.head h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.head-two {
+  background: #0b5ed7;
+  padding: 10px 15px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.head-two .left h3 {
+  font-size: 20px;
+  font-weight: 600;
+  float: right;
+  text-align: center;
+  position: relative;
+  bottom: 23px;
+}
+
+.head-two .right {
+  text-align: left;
+}
+
+.head-two .right a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+  float: left;
+}
+
+.head-two em {
+  margin: 0 5px;
+}
+
+.box-one {
+  padding: 20px;
+  margin-bottom: 20px;
+  height: 160px;
+}
+
+.box-one .num1 h2 {
+  font-size: 25px;
+  font-weight: 400;
+  position: relative;
+  top: 50px;
+  color: rgba(0,0,0,0.7);
+}
+
+.box-one .num1 span {
+  font-weight: 700;
+  font-size: 25px;
+  color: #000;
+}
+
+.box-one img {
+  width: 80px;
+}
+
+.and2 img {
+  width: 150px !important;
+  margin: auto;
+  position: relative;
+  right: 45%;
+  bottom: 80px;
+}
+
+.num1 p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  bottom: 80px;
+}
+
+.nu img {
+  width: 150px;
+  float: left;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+}
+
+#qrcode {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  display: block;
+}
+
+.box-two p {
+  font-size: 16px;
+  margin: 6px 0;
+  line-height: 1.8;
+}
+
+.box-two span {
+  font-weight: 400;
+}
+
+.row span {
+  display: inline-block;
+  font-size: 15px;
+}
+
+/* row specific adjustments */
+.row .col-md-4 span { position: relative; top: 20px; }
+.row .col-md-8 span { position: relative; bottom: 0px; right: 50%; }
+.row1 .col-md-8 span { position: relative; bottom: 20px; right: 50%; }
+.row2 .col-md-6 span { position: relative; bottom: 40px; right: 50%; }
+.row2 .col-md-3 span { position: relative; bottom: 20px; }
+.row3 .col-md-3 span { position: relative; bottom: 40px; }
+.row3 .col-md-4 span { position: relative; bottom: 60px; right: 30%; }
+.row3 .col-md-5 span { position: relative; bottom: 80px; right: 50%; }
+.row3 .col-md-6 span { position: relative; bottom: 100px; right: 70%; }
+.row4 .col-md-3 span { position: relative; bottom: 100px; }
+.row4 .col-md-4 span { position: relative; bottom: 90px; }
+.row4 .col-md-5 span { position: relative; bottom: 110px; right: 30%; }
+.row5 .col-md-2 span { position: relative; bottom: 100px; }
+.row5 .col-md-3 span { position: relative; bottom: 120px; right: 20%; }
+.row5 .col-md-4 span { position: relative; bottom: 140px; right: 35%; }
+.row5 .col-md-5 span { position: relative; bottom: 160px; right: 50%; }
+.row5 .col-md-6 span { position: relative; bottom: 180px; right: 65%; }
+.row5 .col-md-7 span { position: relative; bottom: 200px; right: 80%; }
+.row6 .col-md-12 span { position: relative; bottom: 190px; }
+.row7 .col-md-3 span { position: relative; bottom: 180px; }
+.row7 .col-md-4 span { position: relative; bottom: 200px; right: 30%; }
+.row7 .col-md-2 span { position: relative; bottom: 190px; }
+.row7 .col-md-6 span { position: relative; bottom: 210px; right: 35%; }
+.row8 .col-md-3 span { position: relative; bottom: 200px; }
+.row8 .col-md-5 span { position: relative; bottom: 220px; right: 20%; }
+.row8 .col-md-6 span { position: relative; bottom: 240px; right: 40%; }
+.row9 .col-md-3 span { position: relative; bottom: 230px; }
+.row9 .col-md-9 span { position: relative; bottom: 250px; right: 30%; }
+.row10 .col-md-12 span { position: relative; bottom: 240px; }
+.row11 .col-md-3 span { position: relative; bottom: 230px; }
+.row11 .col-md-4 span { position: relative; bottom: 250px; right: 20%; }
+.row11 .col-md-5 span { position: relative; bottom: 270px; right: 35%; }
+.row11 .col-md-6 span { position: relative; bottom: 290px; right: 50%; }
+.row11 .col-md-8 span { position: relative; bottom: 310px; right: 65%; }
+.row11 .col-md-9 span { position: relative; bottom: 330px; right: 80%; }
+.row12 .col-md-12 span { position: relative; bottom: 320px; }
+.row12 .col-md-9 span { position: relative; bottom: 340px; right: 30%; }
+.row13 .col-md-12 span { position: relative; bottom: 330px; }
+.row14 .col-md-12 span { position: relative; bottom: 320px; color: #000; text-decoration: none; }
+
+.row div span[style*="border"] {
+  padding: 4px 10px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.link-one a {
+  color: black;
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.print button {
+  background: #0b5ed7;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  margin-top: 25px;
+  font-size: 25px;
+  width: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  bottom: 300px;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 12px;
+  background: rgb(3, 3, 85);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  bottom: 300px;
+}
+
+footer a {
+  color: #0b5ed7;
+  text-decoration: none;
+}
+
+/* تحسين الطباعة */
+@media print {
+  .head,
+  .head-two,
+  .print,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  /* #qrcode {
+    display: block;
+    margin: 0 auto;
+  } */
+
+  .report-container {
+    width: 100%;
+    margin: 0;
+  }
+}
+.and2 {
+  position: relative;
+}
+
+/* .and2 img {
+  width: 150px !important;
+  margin: 0;
+  position: relative;
+  right: 0;
+  bottom: 0;
+} */
+
+.nu {
+  position: absolute;
+ top:  0; /* رفع الـ QR Code لفوق */
+  left: 0; /* تحريك الـ QR Code للشمال */
+}
+
+#qrcode {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+}
+@media screen {
+  .nu {
+    position: absolute; /* بدل absolute */
+    top: 60;
+    left: 0;
+    
+  }
+}
+.box-one{
+  position: relative;
+}
