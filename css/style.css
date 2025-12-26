@@ -10,6 +10,9 @@ body {
 .report-container {
   width: 100%;
   margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container, .container-fluid {
@@ -67,32 +70,50 @@ body {
   padding: 20px;
   margin-bottom: 20px;
   height: 160px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .box-one .num1 h2 {
   font-size: 25px;
   font-weight: 400;
   position: relative;
-  top: 50px;
+  top: 0;
   color: rgba(0,0,0,0.7);
+  margin: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .box-one .num1 span {
   font-weight: 700;
   font-size: 25px;
   color: #000;
+  display: block;
+  margin-top: 5px;
 }
 
 .box-one img {
   width: 80px;
 }
 
+.and2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 .and2 img {
   width: 150px !important;
-  margin: auto;
-  position: relative;
-  right: 45%;
-  bottom: 80px;
+  margin: 0 auto !important;
+  position: static !important;
+  right: auto !important;
+  bottom: auto !important;
+  display: block;
 }
 
 .num1 p {
@@ -100,14 +121,18 @@ body {
   font-weight: 600;
   font-size: 18px;
   text-align: center;
-  position: relative;
-  bottom: 80px;
+  position: static;
+}
+
+.nu {
+  position: absolute;
+  left: 20px;
+  top: 20px;
 }
 
 .nu img {
   width: 150px;
-  float: left;
-  position: relative;
+  position: static;
   bottom: 0px;
   left: 0px;
 }
@@ -115,7 +140,7 @@ body {
 #qrcode {
   width: 150px;
   height: 150px;
-  margin: auto;
+  margin: 0;
   display: block;
 }
 
@@ -187,28 +212,35 @@ body {
   text-decoration: none;
 }
 
+.print {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  position: static;
+}
+
 .print button {
   background: #0b5ed7;
   color: #fff;
   padding: 10px 25px;
   border: none;
-  margin-top: 25px;
   font-size: 25px;
   width: 200px;
   border-radius: 5px;
   cursor: pointer;
-  position: relative;
-  bottom: 300px;
+  position: static;
+  display: inline-block;
+  margin: 0;
 }
 
 footer {
-  margin-top: 40px;
+  margin-top: auto;
   padding: 12px;
   background: rgb(3, 3, 85);
   color: #fff;
   text-align: center;
-  position: relative;
-  bottom: 300px;
+  position: static;
+  width: 100%;
 }
 
 footer a {
@@ -216,7 +248,247 @@ footer a {
   text-decoration: none;
 }
 
-/* تحسين الطباعة */
+/* ===================================================
+   إصلاحات للشاشات الصغيرة فقط
+   =================================================== */
+
+/* للشاشات الصغيرة جداً (موبايل صغير) */
+@media screen and (max-width: 480px) {
+  .head h2 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  
+  .head-two .left h3 {
+    font-size: 16px;
+    float: none;
+    position: static;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .head-two .right {
+    text-align: center;
+  }
+  
+  .head-two .right a {
+    float: none;
+    display: inline-block;
+    margin: 2px;
+    font-size: 14px;
+  }
+  
+  .box-one {
+    height: auto;
+    min-height: 180px;
+    padding: 15px;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .box-one .num1 h2 {
+    font-size: 20px;
+    position: static;
+    margin-bottom: 10px;
+    order: 1;
+  }
+  
+  .and2 {
+    position: static;
+    transform: none;
+    order: 2;
+    margin: 15px 0;
+  }
+  
+  .and2 img {
+    width: 120px !important;
+    margin: 0 auto !important;
+  }
+  
+  .num1 p {
+    font-size: 16px;
+    position: static;
+    margin-top: 5px;
+  }
+  
+  .nu {
+    position: static;
+    order: 3;
+    margin-top: 10px;
+  }
+  
+  #qrcode {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  
+  /* إصلاح تداخل الأسماء */
+  .row .col-md-8 span,
+  .row1 .col-md-8 span {
+    right: 0% !important;
+    position: static !important;
+    display: block;
+    margin-top: 5px;
+    text-align: right;
+  }
+  
+  .row .col-md-4 span,
+  .row1 .col-md-4 span {
+    position: static !important;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* تقليل المسافات بين الصفوف */
+  .row2 .col-md-6 span,
+  .row3 .col-md-5 span,
+  .row3 .col-md-6 span,
+  .row4 .col-md-5 span,
+  .row5 .col-md-5 span,
+  .row5 .col-md-6 span,
+  .row5 .col-md-7 span,
+  .row7 .col-md-4 span,
+  .row7 .col-md-6 span,
+  .row8 .col-md-5 span,
+  .row8 .col-md-6 span,
+  .row9 .col-md-9 span,
+  .row11 .col-md-4 span,
+  .row11 .col-md-5 span,
+  .row11 .col-md-6 span,
+  .row11 .col-md-8 span,
+  .row11 .col-md-9 span,
+  .row12 .col-md-9 span {
+    right: 0% !important;
+  }
+  
+  /* إصلاح مواقف الصفوف */
+  .row, .row1, .row2, .row3, .row4, .row5, .row6, .row7, .row8, .row9, .row10, .row11, .row12, .row13, .row14 {
+    margin: 8px 0;
+  }
+  
+  .row span,
+  .row1 span,
+  .row2 span,
+  .row3 span,
+  .row4 span,
+  .row5 span,
+  .row6 span,
+  .row7 span,
+  .row8 span,
+  .row9 span,
+  .row10 span,
+  .row11 span,
+  .row12 span,
+  .row13 span,
+  .row14 span {
+    font-size: 14px;
+    position: static !important;
+    bottom: auto !important;
+    right: auto !important;
+    top: auto !important;
+    display: block;
+    width: 100%;
+    margin: 3px 0;
+  }
+  
+  .print {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .print button {
+    font-size: 20px;
+    width: 180px;
+    padding: 8px 20px;
+  }
+  
+  footer {
+    margin-top: 20px;
+    padding: 10px;
+  }
+}
+
+/* للشاشات المتوسطة الصغيرة (موبايل أفقي/تابلت صغير) */
+@media screen and (max-width: 768px) {
+  .head h2 {
+    font-size: 22px;
+  }
+  
+  .head-two .left h3 {
+    font-size: 18px;
+  }
+  
+  .box-one .num1 h2 {
+    font-size: 22px;
+  }
+  
+  .and2 img {
+    width: 130px !important;
+  }
+  
+  /* تعديلات طفيفة للمسافات */
+  .row .col-md-8 span,
+  .row1 .col-md-8 span,
+  .row2 .col-md-6 span,
+  .row3 .col-md-5 span,
+  .row3 .col-md-6 span,
+  .row4 .col-md-5 span,
+  .row5 .col-md-5 span,
+  .row5 .col-md-6 span,
+  .row5 .col-md-7 span,
+  .row7 .col-md-4 span,
+  .row7 .col-md-6 span,
+  .row8 .col-md-5 span,
+  .row8 .col-md-6 span,
+  .row9 .col-md-9 span,
+  .row11 .col-md-4 span,
+  .row11 .col-md-5 span,
+  .row11 .col-md-6 span,
+  .row11 .col-md-8 span,
+  .row11 .col-md-9 span,
+  .row12 .col-md-9 span {
+    right: 25% !important;
+  }
+}
+
+/* للعرض الأفقي على الموبايل */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .box-one {
+    height: 140px;
+    flex-direction: row;
+  }
+  
+  .box-one .num1 h2 {
+    position: static;
+  }
+  
+  .and2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .and2 img {
+    width: 110px !important;
+  }
+  
+  #qrcode {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* لمنع التكبير الزائد على الشاشات الكبيرة */
+@media screen and (min-width: 1200px) {
+  .report-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+/* تحسين الطباعة - نفسها بدون تغيير */
 @media print {
   .head,
   .head-two,
@@ -230,47 +502,8 @@ footer a {
     color: #000;
   }
 
-  /* #qrcode {
-    display: block;
-    margin: 0 auto;
-  } */
-
   .report-container {
     width: 100%;
     margin: 0;
   }
-}
-.and2 {
-  position: relative;
-}
-
-/* .and2 img {
-  width: 150px !important;
-  margin: 0;
-  position: relative;
-  right: 0;
-  bottom: 0;
-} */
-
-.nu {
-  position: absolute;
- top:  0; /* رفع الـ QR Code لفوق */
-  left: 0; /* تحريك الـ QR Code للشمال */
-}
-
-#qrcode {
-  width: 150px;
-  height: 150px;
-  margin: 0;
-}
-@media screen {
-  .nu {
-    position: absolute; /* بدل absolute */
-    top: 60;
-    left: 0;
-    
-  }
-}
-.box-one{
-  position: relative;
 }
