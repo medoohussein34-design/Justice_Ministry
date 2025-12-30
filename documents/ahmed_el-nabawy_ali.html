@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>وزارة العمل</title>
+
+  <!-- ربط ملف CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- ربط خطوط جوجل -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- تحسين الطباعة -->
+  <style>
+    @media print {
+      .head,
+      .head-two,
+      .print,
+      footer,
+      .loading-message,
+      .error-message {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+        color: #000;
+      }
+
+      .report-container {
+        width: 100%;
+        margin: 0;
+      }
+
+      #qrcode {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .back-button {
+      background: #6c757d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Readex Pro', sans-serif;
+      margin: 10px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+    
+    .back-button:hover {
+      background: #5a6268;
+    }
+    
+    .doc-id-badge {
+      background: #0b5ed7;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+  </style>
+
+  <!-- QR Code library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+
+<!-- زر العودة -->
+<!-- <button class="back-button" onclick="window.location.href='../index.html'">
+  ← العودة للصفحة الرئيسية
+</button> -->
+
+<!-- شارة رقم المستند -->
+<!-- <div class="doc-id-badge">ID: abc123xyz</div> -->
+
+<div class="report-container" id="reportContainer">
+  <div class="container">
+    <div class="head">
+      <img src="../images/وزارة_العمل.png" alt="logo" />
+      <h2>وزارة العمل جمهورية مصر العربية</h2>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="head-two">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="left">
+            <h3>شهادة مخالصة سداد نسبة العمالة غير المنتظمة</h3>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="right">
+            
+            <em>></em>
+            <a href="#" onclick="window.print()">طباعة المخالصة</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="box-one">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="num1">
+            <h2>مديرية عمل الغربية <span id="directorate"></span></h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="num1 and2">
+            <img src="../images/وزارة_العمل.png" alt="logo" />
+            <p>شهادة مخالصة سداد نسبة العمالة غير المنتظمة</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="num1 nu">
+            <div id="qrcode"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-two">
+      <p>السادة جهة الاسناد : <span id="assignmentEntity">مركز سمنود</span></p>
+      <p>
+        اعمالًا لأحكام المادة (26) من قانون العمل الصادر بالقانون رقم 12 لسنة
+        2003 وتنفيذًا للقرار الوزاري 168 لسنة 2007 والمعدل بالقرار الوزاري
+        162 لسنة 2019 تشهد إدارة العمالة غير المنتظمة بمديرية عمل الغربية
+        <span id="directorate2"></span>
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4"><span>إيماءً إلى الطلب المقدم من جهة التنفيذ</span></div>
+      <div class="col-md-8"><span id="executingParty">فايزه مأمون عوض على</span></div>
+    </div>
+
+    <div class="row1">
+      <div class="col-md-4"><span>والمسند إليها عملية</span></div>
+      <div class="col-md-8"><span id="operationDesc">صب سقف ثانى علوى</span></div>
+    </div>
+
+    <div class="row2">
+      <div class="col-md-3"><span>عقد رقم</span></div>
+      <div class="col-md-3"><span id="contractNumber"></span></div>
+      <div class="col-md-6"><span>بقيمة إجمالية</span></div>
+      <div class="col-md-6"><span id="totalValue"></span></div>
+    </div>
+
+    <div class="row3">
+      <div class="col-md-3"><span>عن مستخلص</span></div>
+      <div class="col-md-4"><span id="extractNumber">163985557</span></div>
+      <div class="col-md-5"><span>بقيمة</span></div>
+      <div class="col-md-6"><span style="border:1px solid #000" id="extractValue">11532</span></div>
+    </div>
+
+    <div class="row4">
+      <div class="col-md-4"><span>عن جاري من أو فواتير</span></div>
+      <div class="col-md-5"><span id="invoicesValue">16188</span></div>
+    </div>
+
+    <div class="row5">
+      <div class="col-md-2"><span>نوع المخالصة</span></div>
+      <div class="col-md-3"><span id="clearanceType">ختامي</span></div>
+      <div class="col-md-4"><span>في مدة من</span></div>
+      <div class="col-md-5"><span id="periodFrom">2025-12-01</span></div>
+      <div class="col-md-6"><span>إلى</span></div>
+      <div class="col-md-7"><span id="periodTo">2025-12-31</span></div>
+    </div>
+
+    <div class="row6">
+      <div class="col-md-12">
+        <span>وقد قامت بسداد النسبة القانونية لتشغيل ورعاية وحماية العمالة غير المنتظمة بمديرية عمل الغربية<span id="directorate3"></span></span>
+      </div>
+    </div>
+
+    <div class="row7">
+      <div class="col-md-3"><span>بإيصال رقم</span></div>
+      <div class="col-md-4"><span id="receiptNumber">2025085819112</span></div>
+      <div class="col-md-2"><span>بحساب البريد المصري رقم</span></div>
+      <div class="col-md-6"><span id="postAccount">0800113000772254839444</span></div>
+    </div>
+
+    <div class="row8">
+      <div class="col-md-3"><span>مبلغ وقدره</span></div>
+      <div class="col-md-5"><span style="border:1px solid #000" id="amount">102</span></div>
+      <div class="col-md-6"><span style="border:1px solid #000" id="amountWords">مائة واثنان جنيهاً مصرياً لا غير</span></div>
+    </div>
+
+    <div class="row9">
+      <div class="col-md-3"><span>ملاحظة</span></div>
+      <div class="col-md-9"><span style="border:1px solid #000" id="notes">تم سداد المبلغ</span></div>
+    </div>
+
+    <div class="row10">
+      <div class="col-md-12"><span>وبذلك لا يوجد مانع من صرف مستحقاته في نطاق البيانات المشار إليها بعالية.</span></div>
+    </div>
+
+    <div class="row11">
+      <div class="col-md-3"><span>كود العملية بالوزارة</span></div>
+      <div class="col-md-4"><span id="operationCode">769542</span></div>
+      <div class="col-md-5"><span>رقم المخالصة</span></div>
+      <div class="col-md-6"><span id="clearanceNumber">187090982</span></div>
+    </div>
+
+    <div class="row11">
+      <div class="col-md-8"><span>كلمة المرور</span></div>
+      <div class="col-md-9"><span id="password">9155ZZ75289h</span></div>
+    </div>
+
+    <div class="row12">
+      <div class="col-md-12"><span>تم اعتماد المخالصة في تايخ</span></div>
+      <div class="col-md-9"><span id="approvalDate">25-12-2025</span></div>
+    </div>
+
+    <div class="row13">
+      <div class="col-md-12">
+        <span>يمكنك الاستعلام عن المخالصة عن طريق المسح على الكيو ار كود او من رقم المخاصة وكلمة المرور من خلال الموقع</span>
+      </div>
+    </div>
+
+    <div class="row14">
+      <div class="col-md-12">
+        <span class="link-one">
+          <a href="https://informmanpower.com/" id="websiteLink">https://informmanpower.com/</a>
+        </span>
+      </div>
+    </div>
+
+    <div class="print">
+      <button onclick="window.print()">طباعة المستند</button>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>جميع الحقوق محفوظة <a href="https://inform.manpower.gov.eg/">لوزارة العمل</a> © 2025</p>
+  </footer>
+</div>
+
+<script>
+// بيانات المستند abc123xyz
+const documentData = {
+  
+  assignmentEntity: "مركز سمنود",
+  executingParty: "احمد النبوى على الجمل",
+  operationDesc: "تعلية ثالث علوى وخدمات",
+  contractNumber: "",
+  totalValue: "",
+  extractNumber: "163984289",
+  extractValue: "99900",
+  invoicesValue: "16188",
+  clearanceType: "ختامي",
+  periodFrom: "2025-12-01",
+  periodTo: "2025-12-31",
+  receiptNumber: "2025085899349",
+  postAccount: "0800113000454754839444",
+  amount: "510",
+  amountWords: "خمسمائة وعشرة جنيهاً مصرياً لا غير",
+  notes: "تم سداد المبلغ",
+  operationCode: "769542",
+  clearanceNumber: "187090982",
+  password: "9155ZZ75289h",
+  approvalDate: "30-12-2025",
+  websiteUrl: "https://informmanpower.com/documents/ahmed_el-nabawy_ali.html"
+};
+
+// دالة ملء المستند بالبيانات
+function populateDocument(data) {
+  document.getElementById('directorate').textContent = data.directorate;
+  document.getElementById('directorate2').textContent = data.directorate;
+  document.getElementById('directorate3').textContent = data.directorate;
+  document.getElementById('assignmentEntity').textContent = data.assignmentEntity;
+  document.getElementById('executingParty').textContent = data.executingParty;
+  document.getElementById('operationDesc').textContent = data.operationDesc;
+  document.getElementById('contractNumber').textContent = data.contractNumber;
+  document.getElementById('totalValue').textContent = data.totalValue;
+  document.getElementById('extractNumber').textContent = data.extractNumber;
+  document.getElementById('extractValue').textContent = data.extractValue;
+  document.getElementById('invoicesValue').textContent = data.invoicesValue;
+  document.getElementById('clearanceType').textContent = data.clearanceType;
+  document.getElementById('periodFrom').textContent = data.periodFrom;
+  document.getElementById('periodTo').textContent = data.periodTo;
+  document.getElementById('receiptNumber').textContent = data.receiptNumber;
+  document.getElementById('postAccount').textContent = data.postAccount;
+  document.getElementById('amount').textContent = data.amount;
+  document.getElementById('amountWords').textContent = data.amountWords;
+  document.getElementById('notes').textContent = data.notes;
+  document.getElementById('operationCode').textContent = data.operationCode;
+  document.getElementById('clearanceNumber').textContent = data.clearanceNumber;
+  document.getElementById('password').textContent = data.password;
+  document.getElementById('approvalDate').textContent = data.approvalDate;
+  
+  const websiteLink = document.getElementById('websiteLink');
+  websiteLink.textContent = data.websiteUrl;
+  websiteLink.href = data.websiteUrl;
+  
+  // إنشاء QR Code
+  document.getElementById('qrcode').innerHTML = '';
+  new QRCode(document.getElementById("qrcode"), {
+    text: data.websiteUrl,
+    width: 150,
+    height: 150,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+}
+
+// تشغيل عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+  populateDocument(documentData);
+  console.log('تم تحميل مستند: abc123xyz');
+});
+</script>
+
+</body>
+</html>
